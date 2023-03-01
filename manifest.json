@@ -1,0 +1,6 @@
+{
+  "manifest_version": 3,
+  "name": "Load Time",
+  "version": "1.0",
+  "description": "Shows Web Page load time on top left corner of the page"
+}
