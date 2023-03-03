@@ -135,3 +135,13 @@ function dragLoadTimeStatsDiv(elmnt) {
 		document.onmousemove = null
 	}
 }
+
+function saveObjectToLocalStorage(key, object) {
+    let string = JSON.stringify(object)
+    window.localStorage.setItem(key, string)
+}
+
+function getObjectFromLocalStorage(key) {
+    let string = window.localStorage.getItem(key)
+    return JSON.parse(string)
+}
