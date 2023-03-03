@@ -1,3 +1,4 @@
+let canShow = false
 let performanceValues = {}
 
 performanceValues["deprecatedDomContentLoaded"] =
@@ -31,6 +32,16 @@ const observer = new PerformanceObserver(observerFn)
 	observer.observe({ type: entryType, buffered: true })
 })
 
+let interval = setInterval(() => {
+	if (canShow) {
+		let statsHTML = createStatsHTML(performanceValues)
+		let statsDOM = parseHTML(statsHTML)
+		document.body.prepend(statsDOM[0])
+		injectCSS(css)
+		dragLoadTimeStatsDiv(document.querySelector(".load-time-performance-stats"))
+		clearInterval(interval)
+	}
+}, 100)
 
 function createStatsHTML(performanceValues) {
 	return `
