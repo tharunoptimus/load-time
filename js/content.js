@@ -57,3 +57,10 @@ function createStatsHTML(performanceValues) {
         </div>
     `
 }
+
+function parseHTML(str) {
+	var tmp = document.implementation.createHTMLDocument()
+	tmp.body.innerHTML = str
+	return tmp.body.children
+}
+
