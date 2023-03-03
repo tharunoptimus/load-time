@@ -30,3 +30,30 @@ const observer = new PerformanceObserver(observerFn)
 ;["largest-contentful-paint", "navigation"].forEach((entryType) => {
 	observer.observe({ type: entryType, buffered: true })
 })
+
+
+function createStatsHTML(performanceValues) {
+	return `
+        <div class="load-time-performance-stats">
+            <div class="load-time-performance-stats-header">
+                <div class="load-time-performance-stats-header__title">Load Time Performance Stats</div>
+            </div>
+            <div class="ltps__item">
+                <div class="ltps__item__title">LCP</div>
+                <div class="ltps__item__value">${performanceValues["lcp"]}</div>
+            </div>
+            <div class="ltps__item">
+                <div class="ltps__item__title">DOM Complete</div>
+                <div class="ltps__item__value">${performanceValues["domComplete"]}</div>
+            </div>
+            <div class="ltps__item">
+                <div class="ltps__item__title">DOM Interactive</div>
+                <div class="ltps__item__value">${performanceValues["domInteractive"]}</div>
+            </div>
+            <div class="ltps__item">
+                <div class="ltps__item__title">Deprecated DOM Content Loaded</div>
+                <div class="ltps__item__value">${performanceValues["deprecatedDomContentLoaded"]}</div>
+            </div>
+        </div>
+    `
+}
