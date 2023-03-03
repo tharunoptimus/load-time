@@ -34,12 +34,11 @@ const observer = new PerformanceObserver(observerFn)
 
 let interval = setInterval(() => {
 	if (canShow) {
-        saveObjectToLocalStorage("performanceValues", performanceValues)
+		saveToChromeStorage("performanceValues", performanceValues)
 		clearInterval(interval)
 	}
 }, 100)
 
-function saveObjectToLocalStorage(key, object) {
-    let string = JSON.stringify(object)
-    window.localStorage.setItem(key, string)
+function saveToChromeStorage(key, object) {
+	chrome.storage.local.set({ [key]: object })
 }
