@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
-	"name": "Load Time",
+	"name": "Load Stats",
 	"version": "0.0.0.1",
-	"description": "Shows Web Page load time on top left corner of the page",
+	"description": "Shows Web Page load statistics on top left corner of the page",
 	"icons": {
 		"16": "images/icon-16.png",
 		"32": "images/icon-32.png",
