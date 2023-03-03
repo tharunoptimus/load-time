@@ -5,6 +5,11 @@ performanceValues["deprecatedDomContentLoaded"] =
 	window.performance.timing.domContentLoadedEventEnd -
 	window.performance.timing.navigationStart
 
+chrome.runtime.sendMessage({
+	type: "performanceValues",
+	data: performanceValues,
+})
+
 function observerFn(list) {
 	list.getEntries().forEach((entry) => {
 		switch (entry.entryType) {
